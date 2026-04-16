@@ -1,713 +1,554 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026-1학기 AI 활용 교수법 프로그램 신청</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bcg-green:#00A651; --bcg-dark:#0D2B1E; --bcg-navy:#1A1F36;
-    --bcg-slate:#4A5568; --bcg-light:#F7F8FA; --bcg-border:#E2E5EC;
-    --bcg-accent:#00C764; --bcg-white:#FFFFFF; --bcg-warm:#FAFBFC;
-    --bcg-success:#10B981; --bcg-error:#EF4444; --bcg-amber:#F59E0B;
-    --font-kr:'Noto Sans KR',sans-serif;
-    --shadow-md:0 4px 16px rgba(0,0,0,.08);
-    --shadow-lg:0 12px 40px rgba(0,0,0,.12);
-    --radius:8px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:var(--font-kr);background:var(--bcg-light);color:var(--bcg-navy);line-height:1.7;-webkit-font-smoothing:antialiased}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026학년도 1학기 AI 활용 교수법 프로그램 신청 - 경상국립대학교</title>
+    <!-- 폰트 로드: 명조(제목용)와 고딕(본문용) 혼합으로 프로페셔널한 느낌 부여 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* BCG Style Color Palette */
+            --bcg-green: #005A3C;
+            --bcg-light-green: #E6F0EC;
+            --bcg-black: #1A1A1A;
+            --bcg-gray: #757575;
+            --bcg-light-gray: #F4F4F4;
+            --status-avail-bg: #EAF3EC;
+            --status-avail-text: #005A3C;
+            --status-wait-bg: #FFF3E0;
+            --status-wait-text: #E65100;
+            --status-full-bg: #F0F0F0;
+            --status-full-text: #9E9E9E;
+        }
 
-  /* ═══ HERO ═══ */
-  .hero{background:linear-gradient(135deg,var(--bcg-dark) 0%,#0A3D26 40%,var(--bcg-dark) 100%);color:#fff;padding:56px 24px 48px;position:relative;overflow:hidden}
-  .hero::before{content:'';position:absolute;top:-60%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,166,81,.15) 0%,transparent 70%);pointer-events:none}
-  .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--bcg-green),var(--bcg-accent),var(--bcg-green))}
-  .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
-  .hero-badge{display:inline-block;background:rgba(0,166,81,.2);border:1px solid rgba(0,166,81,.4);color:var(--bcg-accent);font-size:12px;font-weight:600;letter-spacing:1.5px;padding:6px 16px;border-radius:100px;margin-bottom:20px}
-  .hero h1{font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.35;margin-bottom:12px;letter-spacing:-.5px}
-  .hero h1 span{color:var(--bcg-accent)}
-  .hero-sub{font-size:15px;color:rgba(255,255,255,.65);font-weight:300}
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: var(--bcg-black);
+            line-height: 1.6;
+        }
 
-  /* ═══ TABS ═══ */
-  .tab-container{max-width:960px;margin:-24px auto 0;padding:0 24px;position:relative;z-index:10}
-  .tab-nav{display:flex;gap:2px;background:var(--bcg-white);border-radius:var(--radius) var(--radius) 0 0;box-shadow:var(--shadow-md);overflow:hidden}
-  .tab-btn{flex:1;padding:16px 10px;font-family:var(--font-kr);font-size:14px;font-weight:600;border:none;background:var(--bcg-white);color:var(--bcg-slate);cursor:pointer;transition:all .25s;position:relative;display:flex;align-items:center;justify-content:center;gap:6px}
-  .tab-btn::after{content:'';position:absolute;bottom:0;left:16%;right:16%;height:3px;background:var(--bcg-green);border-radius:3px 3px 0 0;transform:scaleX(0);transition:transform .25s}
-  .tab-btn.active{color:var(--bcg-green);background:var(--bcg-warm)}
-  .tab-btn.active::after{transform:scaleX(1)}
-  .tab-btn:hover:not(.active){background:var(--bcg-light);color:var(--bcg-navy)}
-  .tab-icon{font-size:16px}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-  /* ═══ CONTENT ═══ */
-  .content-area{max-width:960px;margin:0 auto 48px;padding:0 24px}
-  .tab-panel{display:none;background:var(--bcg-white);border-radius:0 0 var(--radius) var(--radius);box-shadow:var(--shadow-md);animation:fadeUp .35s ease}
-  .tab-panel.active{display:block}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        .header {
+            border-left: 6px solid var(--bcg-green);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
 
-  /* ═══ SECTIONS ═══ */
-  .info-section{padding:36px 40px}
-  .info-section+.info-section{border-top:1px solid var(--bcg-border)}
-  .section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--bcg-green);margin-bottom:8px}
-  .section-title{font-size:20px;font-weight:700;color:var(--bcg-navy);margin-bottom:16px}
-  .purpose-text{font-size:15px;color:var(--bcg-slate);line-height:1.8;padding-left:16px;border-left:3px solid var(--bcg-green);margin-bottom:8px}
+        .header h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.2rem;
+            color: var(--bcg-black);
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+        }
 
-  /* ═══ WORKSHOP CARDS ═══ */
-  .ws-grid{display:grid;gap:16px}
-  .ws-card{border:1px solid var(--bcg-border);border-radius:var(--radius);padding:24px 28px;position:relative;transition:all .25s;overflow:hidden}
-  .ws-card:hover{box-shadow:var(--shadow-md);border-color:rgba(0,166,81,.3)}
-  .ws-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%}
-  .ws-card.level-초급::before{background:#3B82F6}
-  .ws-card.level-중급::before{background:#F59E0B}
-  .ws-card.level-고급2::before{background:#EF4444}
-  .ws-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
-  .ws-level{font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 12px;border-radius:100px}
-  .ws-level.level-초급{background:#EFF6FF;color:#2563EB}
-  .ws-level.level-중급{background:#FFFBEB;color:#D97706}
-  .ws-level.level-고급2{background:#FEF2F2;color:#DC2626}
-  .ws-title{font-size:16px;font-weight:700;color:var(--bcg-navy);margin-bottom:12px;line-height:1.5}
-  .ws-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
-  .ws-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--bcg-slate)}
-  .ws-meta-icon{width:16px;text-align:center;flex-shrink:0;color:var(--bcg-green)}
-  .ws-detail{margin-top:14px;padding-top:14px;border-top:1px dashed var(--bcg-border);font-size:13px;color:var(--bcg-slate);line-height:1.8}
-  .ws-detail strong{color:var(--bcg-navy);font-weight:600}
+        .header p {
+            font-size: 1.1rem;
+            color: var(--bcg-gray);
+            margin: 0;
+            font-weight: 500;
+        }
 
-  /* ═══ SEAT BADGE & PROGRESS ═══ */
-  .seat-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px;transition:all .3s}
-  .seat-badge.available{background:#ECFDF5;color:#059669}
-  .seat-badge.limited{background:#FFFBEB;color:#D97706}
-  .seat-badge.full{background:#FEF2F2;color:#DC2626}
-  .seat-badge .dot{width:7px;height:7px;border-radius:50%;display:inline-block}
-  .seat-badge.available .dot{background:#10B981}
-  .seat-badge.limited .dot{background:#F59E0B;animation:pulse-dot 1.5s infinite}
-  .seat-badge.full .dot{background:#EF4444}
-  @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
-  .seat-progress-wrap{margin-top:10px;display:flex;align-items:center;gap:10px}
-  .seat-progress-bar{flex:1;height:6px;background:#E5E7EB;border-radius:3px;overflow:hidden}
-  .seat-progress-fill{height:100%;border-radius:3px;transition:width .6s ease}
-  .seat-progress-fill.pg-ok{background:var(--bcg-success)}
-  .seat-progress-fill.pg-limited{background:var(--bcg-amber)}
-  .seat-progress-fill.pg-full{background:var(--bcg-error)}
-  .seat-progress-text{font-size:12px;font-weight:600;color:var(--bcg-slate);white-space:nowrap;min-width:80px;text-align:right}
+        .overview-box {
+            background-color: var(--bcg-light-gray);
+            padding: 30px;
+            margin-bottom: 40px;
+            border-top: 2px solid var(--bcg-green);
+        }
 
-  .note-box{background:var(--bcg-warm);border:1px solid var(--bcg-border);border-radius:var(--radius);padding:16px 20px;font-size:13px;color:var(--bcg-slate);margin-top:24px;display:flex;align-items:flex-start;gap:10px}
-  .note-box .icon{font-size:16px;flex-shrink:0;margin-top:2px}
+        .overview-box h3 {
+            margin-top: 0;
+            font-family: 'Noto Serif KR', serif;
+            color: var(--bcg-green);
+            font-size: 1.3rem;
+        }
 
-  /* ═══ FORM ═══ */
-  .form-section{padding:36px 40px}
-  .form-intro{font-size:14px;color:var(--bcg-slate);margin-bottom:28px;line-height:1.7}
-  .form-group{margin-bottom:22px}
-  .form-group label{display:block;font-size:13px;font-weight:600;color:var(--bcg-navy);margin-bottom:6px}
-  .form-group label .req{color:var(--bcg-error);margin-left:2px}
-  .form-group select,.form-group input{width:100%;padding:12px 16px;font-family:var(--font-kr);font-size:14px;border:1px solid var(--bcg-border);border-radius:6px;background:var(--bcg-white);color:var(--bcg-navy);transition:border-color .2s,box-shadow .2s;outline:none}
-  .form-group select:focus,.form-group input:focus{border-color:var(--bcg-green);box-shadow:0 0 0 3px rgba(0,166,81,.1)}
-  .form-group input::placeholder{color:#B0B8C8}
-  .form-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234A5568' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
-  .form-group .field-error{font-size:12px;color:var(--bcg-error);margin-top:4px;display:none}
-  .form-group.has-error select,.form-group.has-error input{border-color:var(--bcg-error);box-shadow:0 0 0 3px rgba(239,68,68,.1)}
-  .form-group.has-error .field-error{display:block}
+        .overview-box ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+            color: #333;
+        }
 
-  .ws-selection-card{border:1px solid var(--bcg-border);border-radius:var(--radius);padding:16px 20px;margin-top:8px;background:var(--bcg-warm);display:none}
-  .ws-selection-card.visible{display:block}
-  .ws-sel-title{font-size:14px;font-weight:600;color:var(--bcg-navy);margin-bottom:4px}
-  .ws-sel-meta{font-size:13px;color:var(--bcg-slate);margin-bottom:8px}
-  .ws-sel-status{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:6px 14px;border-radius:6px;margin-top:4px}
-  .ws-sel-status.status-ok{background:#ECFDF5;color:#059669;border:1px solid #A7F3D0}
-  .ws-sel-status.status-wait{background:#FFFBEB;color:#B45309;border:1px solid #FDE68A}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .submit-btn{width:100%;padding:16px;font-family:var(--font-kr);font-size:15px;font-weight:700;border:none;border-radius:6px;background:linear-gradient(135deg,var(--bcg-green) 0%,#009945 100%);color:#fff;cursor:pointer;transition:all .25s;letter-spacing:.5px;margin-top:8px}
-  .submit-btn:hover{box-shadow:0 6px 20px rgba(0,166,81,.35);transform:translateY(-1px)}
-  .submit-btn:active{transform:translateY(0)}
-  .submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+        .overview-box li {
+            margin-bottom: 8px;
+        }
 
-  /* ═══ INQUIRY ═══ */
-  .inquiry-wrap{max-width:480px;margin:0 auto}
-  .inquiry-input-row{display:flex;gap:12px}
-  .inquiry-input-row input{flex:1}
-  .inquiry-btn{padding:12px 28px;font-family:var(--font-kr);font-size:14px;font-weight:600;border:none;border-radius:6px;background:var(--bcg-navy);color:#fff;cursor:pointer;transition:all .2s;white-space:nowrap}
-  .inquiry-btn:hover{background:#2D3748}
-  .inquiry-btn:disabled{opacity:.6;cursor:not-allowed}
-  .inquiry-results{margin-top:24px}
-  .inquiry-empty{text-align:center;padding:32px 16px;color:var(--bcg-slate);font-size:14px}
-  .inquiry-card{border:1px solid var(--bcg-border);border-radius:var(--radius);padding:20px 24px;margin-bottom:12px;position:relative;overflow:hidden}
-  .inquiry-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%}
-  .inquiry-card.iq-ok::before{background:var(--bcg-success)}
-  .inquiry-card.iq-wait::before{background:var(--bcg-amber)}
-  .inquiry-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px}
-  .inquiry-card-ws{font-size:15px;font-weight:700;color:var(--bcg-navy)}
-  .inquiry-status-tag{font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px}
-  .inquiry-status-tag.tag-ok{background:#D1FAE5;color:#047857}
-  .inquiry-status-tag.tag-wait{background:#FEF3C7;color:#92400E}
-  .inquiry-card-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:6px;font-size:13px;color:var(--bcg-slate)}
+        .table-container {
+            overflow-x: auto;
+        }
 
-  /* ═══ TOAST ═══ */
-  .toast-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9999;justify-content:center;align-items:center;backdrop-filter:blur(4px)}
-  .toast-overlay.show{display:flex}
-  .toast-box{background:#fff;border-radius:12px;padding:40px 36px;text-align:center;max-width:440px;width:90%;box-shadow:var(--shadow-lg);animation:popIn .3s ease}
-  @keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
-  .toast-icon-wrap{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:30px}
-  .toast-icon-wrap.toast-success{background:#ECFDF5}
-  .toast-icon-wrap.toast-wait{background:#FFFBEB}
-  .toast-icon-wrap.toast-err{background:#FEF2F2}
-  .toast-title{font-size:18px;font-weight:700;color:var(--bcg-navy);margin-bottom:8px}
-  .toast-msg{font-size:14px;color:var(--bcg-slate);line-height:1.6;margin-bottom:8px}
-  .toast-status-card{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:8px;font-size:15px;font-weight:700;margin:12px 0 20px}
-  .toast-status-card.st-ok{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);color:#047857;border:1px solid #6EE7B7}
-  .toast-status-card.st-wait{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);color:#92400E;border:1px solid #FCD34D}
-  .toast-status-card.st-err{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);color:#991B1B;border:1px solid #FCA5A5}
-  .toast-status-icon{font-size:20px}
-  .toast-close-btn{padding:10px 32px;font-family:var(--font-kr);font-size:14px;font-weight:600;border:1px solid var(--bcg-border);border-radius:6px;background:var(--bcg-white);color:var(--bcg-navy);cursor:pointer;transition:all .2s}
-  .toast-close-btn:hover{background:var(--bcg-light)}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
 
-  .footer{text-align:center;padding:24px;font-size:12px;color:#9CA3AF}
+        th {
+            background-color: var(--bcg-green);
+            color: #ffffff;
+            font-weight: 500;
+            padding: 16px;
+            border: 1px solid var(--bcg-green);
+            white-space: nowrap;
+            text-align: center;
+        }
 
-  @media(max-width:640px){
-    .info-section,.form-section{padding:24px 20px}
-    .form-row{grid-template-columns:1fr}
-    .tab-btn{font-size:12px;padding:14px 6px;gap:4px}
-    .tab-btn .tab-label-full{display:none}
-    .tab-btn .tab-label-short{display:inline}
-    .ws-header{flex-direction:column;align-items:flex-start}
-    .inquiry-input-row{flex-direction:column}
-    .inquiry-btn{width:100%}
-  }
-  @media(min-width:641px){.tab-btn .tab-label-short{display:none}}
-  .spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:8px}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .refresh-note{font-size:11px;color:#9CA3AF;text-align:right;margin-top:8px}
-  .conn-test{margin-top:16px;padding:16px 20px;border:1px dashed var(--bcg-border);border-radius:var(--radius);background:var(--bcg-warm)}
-  .conn-test-title{font-size:13px;font-weight:600;color:var(--bcg-navy);margin-bottom:8px}
-  .conn-test-btn{padding:8px 20px;font-family:var(--font-kr);font-size:13px;font-weight:600;border:1px solid var(--bcg-border);border-radius:6px;background:var(--bcg-white);color:var(--bcg-navy);cursor:pointer;transition:all .2s}
-  .conn-test-btn:hover{background:var(--bcg-light);border-color:var(--bcg-green)}
-  .conn-test-result{margin-top:10px;font-size:12px;padding:10px 14px;border-radius:6px;display:none;line-height:1.6;word-break:break-all}
-  .conn-test-result.show{display:block}
-  .conn-test-result.success{background:#ECFDF5;color:#047857;border:1px solid #A7F3D0}
-  .conn-test-result.fail{background:#FEF2F2;color:#991B1B;border:1px solid #FECACA}
-</style>
+        td {
+            padding: 16px;
+            border: 1px solid #E0E0E0;
+            vertical-align: middle;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FAFAFA;
+        }
+
+        tr:hover {
+            background-color: var(--bcg-light-green);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .badge.available { background-color: var(--status-avail-bg); color: var(--status-avail-text); }
+        .badge.waitlist { background-color: var(--status-wait-bg); color: var(--status-wait-text); }
+        .badge.full { background-color: var(--status-full-bg); color: var(--status-full-text); }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 2px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn.apply { background-color: var(--bcg-green); color: white; }
+        .btn.apply:hover { background-color: #00402A; }
+        
+        .btn.waitlist { background-color: #FFFFFF; color: var(--bcg-black); border: 1px solid var(--bcg-black); }
+        .btn.waitlist:hover { background-color: #F0F0F0; }
+
+        .btn.disabled { background-color: #E0E0E0; color: #9E9E9E; cursor: not-allowed; border: none; }
+
+        .topic-title { font-weight: 700; margin-bottom: 8px; color: var(--bcg-black); font-size: 1.05rem; }
+        .topic-desc { font-size: 0.85rem; color: var(--bcg-gray); line-height: 1.4; }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal {
+            background: #fff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-top: 4px solid var(--bcg-green);
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #E0E0E0;
+            padding-bottom: 10px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.5rem;
+            color: var(--bcg-black);
+        }
+        
+        .modal-header p {
+            margin: 5px 0 0 0;
+            font-size: 0.9rem;
+            color: var(--status-wait-text);
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .modal-actions button {
+            flex: 1;
+            padding: 12px;
+        }
+
+        .btn-cancel {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            color: var(--bcg-black);
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-cancel:hover { background-color: #f9f9f9; }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #E0E0E0;
+            text-align: center;
+            color: var(--bcg-gray);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
-<!-- ═══════════ HERO ═══════════ -->
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">글로컬대학사업 · 교육혁신처 AI센터</div>
-    <h1>2026학년도 1학기<br><span>AI 활용 교수법</span> 프로그램 신청</h1>
-    <p class="hero-sub">생성형 AI를 활용한 수업 적용 사례 실습 · 교원 디지털 전환 역량 강화 · 워크숍별 20명 선착순</p>
-  </div>
+<div class="container">
+    <div class="header">
+        <h1>2026학년도 1학기 AI 활용 교수법 프로그램</h1>
+        <p>글로컬대학30 프로젝트 | 경상국립대학교 교육혁신처 AI센터</p>
+    </div>
+
+    <div class="overview-box">
+        <h3>프로그램 운영 안내</h3>
+        <ul>
+            <li><strong>목적:</strong> 생성형 AI를 활용한 수업 적용 사례 실습을 통한 교원의 디지털 전환 역량 강화</li>
+            <li><strong>대상:</strong> 경상국립대학교 교원 100명 (비전임교원 포함)</li>
+            <li><strong>방식:</strong> AI 전문가 맞춤형 교육, 통합 워크숍, 블렌디드 러닝 및 복습용 VOD 제공</li>
+            <li><strong>안내:</strong> 정원(20명) 초과 시 '대기접수'로 전환되며, 취소자 발생 시 순차적으로 참석 안내를 드립니다.</li>
+        </ul>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th width="8%">구분</th>
+                    <th width="32%">주제 및 세부내용</th>
+                    <th width="12%">강사</th>
+                    <th width="16%">일시 및 장소</th>
+                    <th width="8%">신청현황</th>
+                    <th width="10%">상태</th>
+                    <th width="14%">신청</th>
+                </tr>
+            </thead>
+            <tbody id="program-list">
+                <!-- JavaScript를 통해 데이터가 동적으로 렌더링됩니다. -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        © 2026 Gyeongsang National University AI Center. All rights reserved.
+    </div>
 </div>
 
-<!-- ═══════════ TABS ═══════════ -->
-<div class="tab-container">
-  <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-icon">📋</span><span class="tab-label-full">워크숍 안내</span><span class="tab-label-short">안내</span></button>
-    <button class="tab-btn" onclick="switchTab(1)"><span class="tab-icon">✏️</span><span class="tab-label-full">워크숍 신청</span><span class="tab-label-short">신청</span></button>
-    <button class="tab-btn" onclick="switchTab(2)"><span class="tab-icon">🔍</span><span class="tab-label-full">신청 조회</span><span class="tab-label-short">조회</span></button>
-  </div>
+<!-- 신청 폼 모달 -->
+<div class="modal-overlay" id="applyModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>프로그램 신청서</h2>
+            <p id="modalStatusText"></p>
+            <div style="font-size: 0.85rem; color: #666; margin-top: 8px;" id="modalProgramInfo"></div>
+        </div>
+        <form id="applyForm">
+            <input type="hidden" id="programId">
+            <input type="hidden" id="applyType">
+            
+            <div class="form-group">
+                <label for="empNo">교번</label>
+                <input type="text" id="empNo" required placeholder="예: 123456">
+            </div>
+            <div class="form-group">
+                <label for="empName">성명</label>
+                <input type="text" id="empName" required placeholder="이름을 입력하세요">
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <div class="form-group" style="flex: 1;">
+                    <label for="college">단과대학</label>
+                    <input type="text" id="college" required placeholder="소속 단과대학">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label for="department">학과</label>
+                    <input type="text" id="department" required placeholder="소속 학과">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">연락처</label>
+                <input type="tel" id="phone" required placeholder="010-0000-0000">
+            </div>
+            <div class="form-group">
+                <label for="email">자주 사용하는 메일</label>
+                <input type="email" id="email" required placeholder="example@gnu.ac.kr">
+            </div>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" onclick="closeModal()">취소</button>
+                <button type="submit" class="btn apply" id="submitBtn">제출하기</button>
+            </div>
+        </form>
+    </div>
 </div>
-
-<!-- ═══════════ CONTENT ═══════════ -->
-<div class="content-area">
-
-  <!-- ──── TAB 0: 워크숍 안내 ──── -->
-  <div class="tab-panel active" id="panel-0">
-    <div class="info-section">
-      <div class="section-label">Purpose</div>
-      <div class="section-title">프로그램 목적</div>
-      <p class="purpose-text"><strong>에듀테크 기반 교수 역량 강화</strong> — 생성형 AI를 활용한 수업 적용 사례를 실습함으로써 교원의 디지털 전환을 위한 역량을 강화합니다.</p>
-    </div>
-    <div class="info-section">
-      <div class="section-label">Workshops</div>
-      <div class="section-title">워크숍 세부 안내 <span style="font-size:14px;font-weight:400;color:var(--bcg-slate)">— 교원 100명 (비전임교원 포함) · 워크숍별 20명 선착순</span></div>
-      <div class="ws-grid" id="wsGrid"></div>
-      <div class="refresh-note" id="refreshNote"></div>
-      <div class="note-box">
-        <span class="icon">ℹ️</span>
-        <div><strong>안내사항:</strong> 각 워크숍은 <strong>선착순 20명</strong>으로 모집하며, 정원 초과 시 <strong>대기순위</strong>로 자동 배정됩니다.<br>워크숍에 <strong>대면으로 참여</strong>한 교원에 한해 교수법 프로그램 참여가 인정됩니다. 복습용 녹화 영상 콘텐츠를 제공하여 다시보기 서비스를 지원합니다.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ──── TAB 1: 워크숍 신청 ──── -->
-  <div class="tab-panel" id="panel-1">
-    <div class="form-section">
-      <div class="section-label">Registration</div>
-      <div class="section-title">워크숍 신청</div>
-      <p class="form-intro">참여를 원하시는 워크숍을 선택하고 아래 정보를 입력해 주세요. <strong>선착순 20명</strong> 모집이며, 정원 초과 시 대기순위가 부여됩니다.<br><span style="color:var(--bcg-error)">*</span> 표시는 필수 입력 항목입니다.</p>
-      <form id="regForm" onsubmit="return handleSubmit(event)" novalidate>
-        <div class="form-group" id="fg-workshop">
-          <label>신청 워크숍 <span class="req">*</span></label>
-          <select id="workshop" required onchange="onWorkshopChange()"><option value="">워크숍을 선택하세요</option></select>
-          <div class="field-error">워크숍을 선택해 주세요.</div>
-          <div class="ws-selection-card" id="selCard">
-            <div class="ws-sel-title" id="selTitle"></div>
-            <div class="ws-sel-meta" id="selMeta"></div>
-            <div class="ws-sel-status status-ok" id="selStatus"></div>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group" id="fg-empId"><label>교번 <span class="req">*</span></label><input type="text" id="empId" placeholder="예: 20250001" required><div class="field-error">교번을 입력해 주세요.</div></div>
-          <div class="form-group" id="fg-name"><label>성명 <span class="req">*</span></label><input type="text" id="name" placeholder="홍길동" required><div class="field-error">성명을 입력해 주세요.</div></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group" id="fg-college">
-            <label>단과대학 <span class="req">*</span></label>
-            <select id="college" required>
-              <option value="">단과대학을 선택하세요</option>
-              <option>인문대학</option><option>사회과학대학</option><option>자연과학대학</option><option>경영대학</option><option>공과대학</option><option>농업생명과학대학</option><option>법과대학</option><option>사범대학</option><option>수의과대학</option><option>약학대학</option><option>의과대학</option><option>간호대학</option><option>해양과학대학</option><option>항공우주및소프트웨어공학대학</option><option>건설환경공과대학</option><option>기타</option>
-            </select>
-            <div class="field-error">단과대학을 선택해 주세요.</div>
-          </div>
-          <div class="form-group" id="fg-dept"><label>학과(부) <span class="req">*</span></label><input type="text" id="dept" placeholder="예: 컴퓨터공학과" required><div class="field-error">학과를 입력해 주세요.</div></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group" id="fg-phone"><label>연락처 <span class="req">*</span></label><input type="tel" id="phone" placeholder="010-0000-0000" required><div class="field-error">연락처를 올바르게 입력해 주세요.</div></div>
-          <div class="form-group" id="fg-email"><label>자주 사용하는 메일 <span class="req">*</span></label><input type="email" id="email" placeholder="example@gnu.ac.kr" required><div class="field-error">올바른 이메일 형식으로 입력해 주세요.</div></div>
-        </div>
-        <button type="submit" class="submit-btn" id="submitBtn">신청하기</button>
-      </form>
-
-      <!-- 연결 테스트 -->
-      <div class="conn-test" id="connTestWrap">
-        <div class="conn-test-title">서버 연결 상태 확인</div>
-        <button class="conn-test-btn" onclick="testConnection()">연결 테스트</button>
-        <div class="conn-test-result" id="connTestResult"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ──── TAB 2: 신청 조회 ──── -->
-  <div class="tab-panel" id="panel-2">
-    <div class="form-section">
-      <div class="section-label">Status Inquiry</div>
-      <div class="section-title">신청 조회</div>
-      <p class="form-intro">교번을 입력하면 신청한 워크숍과 현재 신청 상태를 확인할 수 있습니다.</p>
-      <div class="inquiry-wrap">
-        <div class="inquiry-input-row">
-          <input type="text" id="inquiryEmpId" placeholder="교번을 입력하세요" style="font-family:var(--font-kr);font-size:14px;padding:12px 16px;border:1px solid var(--bcg-border);border-radius:6px;outline:none" onfocus="this.style.borderColor='var(--bcg-green)';this.style.boxShadow='0 0 0 3px rgba(0,166,81,.1)'" onblur="this.style.borderColor='var(--bcg-border)';this.style.boxShadow='none'">
-          <button class="inquiry-btn" id="inquiryBtn" onclick="handleInquiry()">조회하기</button>
-        </div>
-        <div class="inquiry-results" id="inquiryResults"></div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ═══════════ TOAST ═══════════ -->
-<div class="toast-overlay" id="toastOverlay">
-  <div class="toast-box">
-    <div class="toast-icon-wrap toast-success" id="toastIconWrap"><span id="toastIcon">✅</span></div>
-    <div class="toast-title" id="toastTitle">신청이 완료되었습니다</div>
-    <div class="toast-msg" id="toastMsg"></div>
-    <div class="toast-status-card st-ok" id="toastStatusCard">
-      <span class="toast-status-icon" id="toastStatusIcon">✅</span>
-      <span id="toastStatusText">정상신청완료</span>
-    </div>
-    <button class="toast-close-btn" onclick="closeToast()">확인</button>
-  </div>
-</div>
-
-<div class="footer">© 2026 경상국립대학교 교육혁신처 AI센터 · 글로컬대학사업</div>
 
 <script>
-const MAX_SEATS = 20;
-const REFRESH_INTERVAL = 30000;
+    // [중요] 구글 앱스 스크립트 배포 후 생성된 '웹앱 URL'을 아래에 붙여넣으세요.
+    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyB1TKab4-T8tzRFoWRKbi6W7H3z-1zSIiEGVY3FMiZoS3MB9xLKhxvbPlk3dfWIkaG/exec';
 
-/*
- * ══════════════════════════════════════════════════════════
- *  구글 앱스크립트 웹앱 URL
- *  아래 URL을 실제 배포된 URL로 교체하세요.
- *  형태: https://script.google.com/macros/s/AKfycb.../exec
- * ══════════════════════════════════════════════════════════
- */
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykBRCSrbTy76bNihZMI-Oj0-PaIqBywtSnUMaRGB6xQRxvNEs1g1Exq72uudrkPn7v/exec';
-const IS_DEMO = (SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL');
+    // 프로그램 데이터 (기획 문서 및 CSV 양식 기반)
+    // currentApplicants 수치를 변경하여 상태(신청가능/대기접수/마감) 테스트 가능
+    let programs = [
+        {
+            id: 1,
+            category: "초급",
+            title: "생성형 AI 수업 적용 사례의 공유 및 실험",
+            desc: "Google NotebookLM을 활용한 요약 등 다양한 수업 적용법<br>학생 자기주도 학습 도구로서의 생성형 AI 활용법",
+            instructor: "윤혜식 대표<br><span style='font-size:0.8em;color:#666'>(2Miles)</span>",
+            date: "'26. 4. 22.(수)<br>11:00 ~ 14:00",
+            location: "ICT융합센터 10층<br>자율전공학부 PBL강의실",
+            capacity: 20,
+            currentApplicants: 15 // 신청가능
+        },
+        {
+            id: 2,
+            category: "중급",
+            title: "AI 생성 텍스트와 학습자의 문체 비교 분석을 위한 RAG 도구 개발",
+            desc: "Google NotebookLM 활용 문체 진단 질의응답 도구 제작<br>GPTs, Claude 활용 글쓰기 개선 방향 제안",
+            instructor: "최영복 강사<br><span style='font-size:0.8em;color:#666'>(레이즈)</span>",
+            date: "'26. 4. 27.(월) 16:30~18:30",
+            location: "정보전산처(4동) 1층<br>하이플렉스 강의실",
+            capacity: 20,
+            currentApplicants: 23 // 대기접수 (20명 이상)
+        },
+        {
+            id: 3,
+            category: "고급2",
+            title: "Al Agent를 활용한 학습 환류 시스템",
+            desc: "RAG기반 형성평가 문항 자동 생성하기<br>학생의 오답 유형별 피드백 생성 및 문제 해결 전략",
+            instructor: "이성원<br><span style='font-size:0.8em;color:#666'>(경남교육청)</span>",
+            date: "'26. 5. 7.(목) 14:30~16:30",
+            location: "정보전산처(4동) 1층<br>하이플렉스 강의실",
+            capacity: 20,
+            currentApplicants: 29 // 대기접수
+        },
+        {
+            id: 4,
+            category: "고급2",
+            title: "MCP 기반 AI 에이전트를 활용한 연구형 교수법 개발",
+            desc: "Obsidian을 활용한 학술검색에서 지식관리 전략<br>Claude와 NanoBanana를 활용한 문서 자동 생성",
+            instructor: "연정호 박사<br><span style='font-size:0.8em;color:#666'>(SK하이닉스)</span>",
+            date: "'26. 4. 29.(수)<br>16:30~18:30",
+            location: "정보전산처(4동) 1층<br>하이플렉스 강의실",
+            capacity: 20,
+            currentApplicants: 8 // 신청가능
+        },
+        {
+            id: 5,
+            category: "고급2",
+            title: "AI 에이전트를 활용한 자연과학 분야 맞춤형 강의 보조도구 설계",
+            desc: "Claude를 활용한 분자구조 분석 및 시각화 Agent 제작<br>Notebook LM을 활용한 자율학습 도우미 제작",
+            instructor: "이성원<br><span style='font-size:0.8em;color:#666'>(경남교육청)</span>",
+            date: "'26. 4. 30.(목)<br>15:00~17:00",
+            location: "정보전산처(4동) 1층<br>하이플렉스 강의실",
+            capacity: 20,
+            currentApplicants: 30 // 마감 (정원+대기인원10명 꽉참)
+        }
+    ];
 
-// ══════════════════════════════════════════════════
-//  워크숍 데이터 (조정본 — 5개 워크숍)
-// ══════════════════════════════════════════════════
-const WORKSHOPS = [
-  { id:'ws1', level:'초급', levelClass:'level-초급',
-    title:'생성형 AI 수업 적용 사례의 공유 및 실험',
-    date:"2026. 4. 22.(수) 11:00~14:00", loc:'ICT융합센터 10층 자율전공학부 PBL강의실',
-    instructor:'윤혜식 대표',
-    detail:'Google NotebookLM을 활용한 요약 등 다양한 수업 적용법: 수업 전과 수업 후를 중심으로 / 학생 자기주도 학습 도구로서의 생성형 AI 활용법' },
-  { id:'ws2', level:'중급', levelClass:'level-중급',
-    title:'AI 생성 텍스트와 학습자의 문체 비교 분석을 위한 RAG 도구 개발',
-    date:"2026. 4. 27.(월) 16:30~18:30", loc:'정보전산처(4동) 1층 하이플렉스 강의실',
-    instructor:'최영복 강사',
-    detail:'Google NotebookLM 활용 문체 진단 질의응답 도구 제작 / GPTs, Claude 활용 글쓰기 개선 방향 제안 챗봇 제작 / 챗봇 제작을 위한 프롬프트 설계 방법' },
-  { id:'ws3', level:'고급', levelClass:'level-고급2',
-    title:'AI Agent를 활용한 학습 환류 시스템',
-    date:"2026. 5. 7.(목) 14:30~16:30", loc:'정보전산처(4동) 1층 하이플렉스 강의실',
-    instructor:'이성원 선생님',
-    detail:'RAG 기반 형성평가 문항 자동 생성하기 / 학생의 오답 유형별 피드백 생성 및 문제 해결 전략 안내 Agent 제작' },
-  { id:'ws4', level:'고급', levelClass:'level-고급2',
-    title:'MCP 기반 AI 에이전트를 활용한 연구형 교수법 개발',
-    date:"2026. 4. 29.(수) 16:30~18:30", loc:'정보전산처(4동) 1층 하이플렉스 강의실',
-    instructor:'연정호 박사',
-    detail:'Obsidian을 활용한 학술검색에서 지식관리 전략 / Claude와 NanoBanana를 활용한 문서 자동 생성 및 데이터 시각화 전략' },
-  { id:'ws5', level:'고급', levelClass:'level-고급2',
-    title:'AI 에이전트를 활용한 자연과학 분야 맞춤형 강의 보조도구 설계 및 제작',
-    date:"2026. 4. 30.(목) 15:00~17:00", loc:'정보전산처(4동) 1층 하이플렉스 강의실',
-    instructor:'이성원 선생님',
-    detail:'Claude를 활용한 분자구조 분석 및 시각화 Agent 제작 / Notebook LM을 활용한 자율학습 도우미 제작' }
-];
+    const MAX_WAITLIST = 10; // 대기열 허용 인원
 
-let currentCounts = {};
-WORKSHOPS.forEach(w => currentCounts[w.id] = 0);
-let demoRecords = [];
+    function renderTable() {
+        const tbody = document.getElementById('program-list');
+        tbody.innerHTML = '';
+        
+        programs.forEach(prog => {
+            let statusText, badgeClass, btnText, btnClass;
 
-// ══════════════════════════════════════════════════
-//  [핵심 수정] 서버 통신 헬퍼 함수
-//  - Content-Type 헤더를 제거하여 CORS preflight 방지
-//  - redirect:'follow' 명시로 Google 302 리다이렉트 처리
-//  - 타임아웃 및 에러 핸들링 강화
-// ══════════════════════════════════════════════════
+            if (prog.currentApplicants < prog.capacity) {
+                statusText = "신청가능";
+                badgeClass = "available";
+                btnText = "신청하기";
+                btnClass = "apply";
+            } else if (prog.currentApplicants < (prog.capacity + MAX_WAITLIST)) {
+                statusText = "대기접수";
+                badgeClass = "waitlist";
+                btnText = "대기하기";
+                btnClass = "waitlist";
+            } else {
+                statusText = "접수마감";
+                badgeClass = "full";
+                btnText = "마감됨";
+                btnClass = "disabled";
+            }
 
-/** GET 요청 (counts, inquiry) */
-async function apiGet(params) {
-  const url = SCRIPT_URL + (params ? '?' + params : '');
-  console.log('[API GET]', url);
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td style="text-align: center;"><strong>${prog.category}</strong></td>
+                <td>
+                    <div class="topic-title">${prog.title}</div>
+                    <div class="topic-desc">${prog.desc}</div>
+                </td>
+                <td style="text-align: center;">${prog.instructor}</td>
+                <td>
+                    <div style="margin-bottom: 6px; font-weight: 500;">📅 ${prog.date}</div>
+                    <div style="font-size: 0.85em; color: #666;">📍 ${prog.location}</div>
+                </td>
+                <td style="text-align: center; font-weight: bold; color: var(--bcg-black);">
+                    ${prog.currentApplicants} <span style="font-weight: normal; color: #999;">/ ${prog.capacity}</span>
+                </td>
+                <td style="text-align: center;">
+                    <span class="badge ${badgeClass}">${statusText}</span>
+                </td>
+                <td>
+                    <button class="btn ${btnClass}" onclick="openModal(${prog.id}, '${statusText}')" ${btnClass === 'disabled' ? 'disabled' : ''}>
+                        ${btnText}
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
+    function openModal(id, status) {
+        const program = programs.find(p => p.id === id);
+        document.getElementById('programId').value = program.id;
+        document.getElementById('applyType').value = status;
+        
+        document.getElementById('modalProgramInfo').innerHTML = `<strong>[${program.category}]</strong> ${program.title}`;
+        
+        const statusTextEl = document.getElementById('modalStatusText');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        if (status === '대기접수') {
+            statusTextEl.innerText = "※ 현재 정원이 초과되어 대기자로 등록됩니다.";
+            statusTextEl.style.color = "var(--status-wait-text)";
+            submitBtn.innerText = "대기자 등록하기";
+            submitBtn.style.backgroundColor = "var(--status-wait-text)";
+        } else {
+            statusTextEl.innerText = "";
+            submitBtn.innerText = "신청서 제출하기";
+            submitBtn.style.backgroundColor = "var(--bcg-green)";
+        }
 
-  try {
-    const res = await fetch(url, {
-      method: 'GET',
-      redirect: 'follow',
-      signal: controller.signal
+        document.getElementById('applyModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('applyModal').style.display = 'none';
+        document.getElementById('applyForm').reset();
+    }
+
+    // 폼 제출 이벤트 핸들링 (Google Sheets 연동 추가)
+    document.getElementById('applyForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = '데이터 전송 중...';
+        submitBtn.disabled = true;
+
+        const id = parseInt(document.getElementById('programId').value);
+        const type = document.getElementById('applyType').value;
+        const program = programs.find(p => p.id === id);
+        
+        // 구글 시트(CSV) 양식에 맞춘 페이로드 데이터 구성
+        const payload = {
+            programTitle: program.title,
+            programDate: program.date.replace(/<br>/g, ' '), // HTML 줄바꿈 태그를 공백으로 치환
+            empNo: document.getElementById('empNo').value,
+            empName: document.getElementById('empName').value,
+            college: document.getElementById('college').value,
+            department: document.getElementById('department').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            applyType: type === '대기접수' ? '대기' : '신청완료'
+        };
+
+        try {
+            // Google Apps Script로 POST 요청 (CORS 회피를 위해 no-cors 모드 사용)
+            if (GOOGLE_APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+                await fetch(GOOGLE_APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+            } else {
+                console.warn("Google Apps Script URL이 설정되지 않아 콘솔에만 데이터를 출력합니다.", payload);
+            }
+
+            // 화면상 카운트 업데이트 및 UI 갱신 (실시간 연동 시뮬레이션)
+            program.currentApplicants++;
+            
+            const name = payload.empName;
+            let msg = type === '대기접수' 
+                ? `${name} 교수님, 대기자 명단에 등록되었습니다.\n취소자 발생 시 기재해주신 연락처로 개별 안내 드립니다.` 
+                : `${name} 교수님, 신청이 완료되었습니다.\n상세 안내는 이메일로 발송됩니다.`;
+                
+            alert(msg);
+            closeModal();
+            renderTable();
+
+        } catch (error) {
+            console.error('Error:', error);
+            alert('데이터 전송 중 시스템 오류가 발생했습니다. AI센터로 문의 바랍니다.');
+        } finally {
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
-    clearTimeout(timeout);
 
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const text = await res.text();
-    console.log('[API GET 응답]', text.substring(0, 200));
-    return JSON.parse(text);
-  } catch (err) {
-    clearTimeout(timeout);
-    console.error('[API GET 실패]', err);
-    throw err;
-  }
-}
-
-/** POST 요청 (신청 접수) */
-async function apiPost(payload) {
-  console.log('[API POST]', SCRIPT_URL, payload);
-
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
-
-  try {
-    // ── 핵심: headers를 설정하지 않으면 브라우저가 text/plain으로 자동 설정 ──
-    // ── 이렇게 해야 CORS preflight(OPTIONS)가 발생하지 않음 ──
-    const res = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      redirect: 'follow',
-      body: JSON.stringify(payload),
-      signal: controller.signal
-    });
-    clearTimeout(timeout);
-
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const text = await res.text();
-    console.log('[API POST 응답]', text.substring(0, 200));
-    return JSON.parse(text);
-  } catch (err) {
-    clearTimeout(timeout);
-    console.error('[API POST 실패]', err);
-    throw err;
-  }
-}
-
-// ══════════════════════════════════════════════════
-//  연결 테스트
-// ══════════════════════════════════════════════════
-async function testConnection() {
-  const result = document.getElementById('connTestResult');
-  result.className = 'conn-test-result show';
-  result.style.background = '#FEF3C7';
-  result.style.color = '#92400E';
-  result.style.border = '1px solid #FDE68A';
-  result.textContent = '테스트 중...';
-
-  if (IS_DEMO) {
-    result.className = 'conn-test-result show fail';
-    result.innerHTML = '<strong>SCRIPT_URL이 설정되지 않았습니다.</strong><br>index.html에서 SCRIPT_URL을 실제 웹앱 URL로 교체해 주세요.<br>현재 값: YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
-    return;
-  }
-
-  try {
-    // 1단계: URL 형식 확인
-    if (!SCRIPT_URL.startsWith('https://script.google.com/macros/s/')) {
-      throw new Error('URL 형식이 올바르지 않습니다.\n올바른 형태: https://script.google.com/macros/s/AKfycb.../exec');
-    }
-
-    // 2단계: GET 요청 테스트
-    const data = await apiGet('action=counts');
-
-    if (data && data.success) {
-      result.className = 'conn-test-result show success';
-      result.innerHTML = '<strong>연결 성공!</strong><br>서버 응답 정상 · 워크숍 인원 데이터 수신 완료<br>counts: ' + JSON.stringify(data.counts);
-    } else {
-      result.className = 'conn-test-result show fail';
-      result.innerHTML = '<strong>응답은 받았으나 형식이 다릅니다.</strong><br>Apps Script 코드를 확인하세요.<br>응답: ' + JSON.stringify(data).substring(0, 200);
-    }
-  } catch (err) {
-    result.className = 'conn-test-result show fail';
-    let msg = '<strong>연결 실패</strong><br>';
-    if (err.name === 'AbortError') {
-      msg += '15초 타임아웃 — 서버가 응답하지 않습니다.';
-    } else if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
-      msg += 'CORS 또는 네트워크 오류입니다.<br><br>';
-      msg += '<strong>확인 사항:</strong><br>';
-      msg += '1. Apps Script 배포 시 액세스 권한을 <strong>"모든 사용자"</strong>로 선택했는지 확인<br>';
-      msg += '&nbsp;&nbsp;&nbsp;("Google 계정이 있는 모든 사용자"가 아닌 "모든 사용자")<br>';
-      msg += '2. 코드 수정 후 <strong>배포 → 배포 관리 → ✏ → 버전: "새 버전" → 배포</strong> 했는지 확인<br>';
-      msg += '3. URL이 /exec 으로 끝나는지 확인 (/dev 아님)';
-    } else {
-      msg += err.message;
-    }
-    msg += '<br><br>현재 URL: ' + SCRIPT_URL;
-    result.innerHTML = msg;
-  }
-}
-
-// ══════════════════════════════════════════════════
-//  RENDER
-// ══════════════════════════════════════════════════
-function renderCards() {
-  const grid = document.getElementById('wsGrid');
-  const sel = document.getElementById('workshop');
-  grid.innerHTML = '';
-  sel.innerHTML = '<option value="">워크숍을 선택하세요</option>';
-  WORKSHOPS.forEach(w => {
-    const label = '['+w.level+'] '+w.title;
-    grid.innerHTML += `
-    <div class="ws-card ${w.levelClass}" data-ws="${w.id}">
-      <div class="ws-header">
-        <span class="ws-level ${w.levelClass}">${w.level}</span>
-        <span class="seat-badge available" id="badge-${w.id}"><span class="dot"></span>신청가능</span>
-      </div>
-      <div class="ws-title">${w.title}</div>
-      <div class="ws-meta">
-        <div class="ws-meta-item"><span class="ws-meta-icon">📅</span>${w.date}</div>
-        <div class="ws-meta-item"><span class="ws-meta-icon">📍</span>${w.loc}</div>
-        <div class="ws-meta-item"><span class="ws-meta-icon">👤</span>${w.instructor}</div>
-        <div class="ws-meta-item"><span class="ws-meta-icon">👥</span>20명</div>
-      </div>
-      <div class="seat-progress-wrap">
-        <div class="seat-progress-bar"><div class="seat-progress-fill pg-ok" id="pg-${w.id}" style="width:0%"></div></div>
-        <div class="seat-progress-text" id="pgtxt-${w.id}">0 / 20명</div>
-      </div>
-      <div class="ws-detail"><strong>세부내용:</strong> ${w.detail}</div>
-    </div>`;
-    sel.innerHTML += `<option value="${label}" data-date="${w.date}" data-loc="${w.loc}" data-ws="${w.id}">${label}</option>`;
-  });
-}
-
-// ══════════════════════════════════════════════════
-//  SEAT UI
-// ══════════════════════════════════════════════════
-function updateSeatUI(wsId, count) {
-  const badge=document.getElementById('badge-'+wsId);
-  const pg=document.getElementById('pg-'+wsId);
-  const pgtxt=document.getElementById('pgtxt-'+wsId);
-  if(!badge)return;
-  const pct=Math.min((count/MAX_SEATS)*100,100);
-  pg.style.width=pct+'%';
-  pg.className='seat-progress-fill '+(count>=MAX_SEATS?'pg-full':count>=15?'pg-limited':'pg-ok');
-  if(count>MAX_SEATS){pgtxt.textContent=MAX_SEATS+' / '+MAX_SEATS+'명 (대기 '+(count-MAX_SEATS)+'명)';}
-  else{pgtxt.textContent=count+' / '+MAX_SEATS+'명';}
-  if(count>=MAX_SEATS){badge.className='seat-badge full';badge.innerHTML='<span class="dot"></span>대기접수 중';}
-  else if(count>=15){badge.className='seat-badge limited';badge.innerHTML='<span class="dot"></span>마감임박 ('+(MAX_SEATS-count)+'석)';}
-  else{badge.className='seat-badge available';badge.innerHTML='<span class="dot"></span>신청가능 ('+(MAX_SEATS-count)+'석)';}
-}
-function updateAllSeats(){
-  Object.keys(currentCounts).forEach(id=>updateSeatUI(id,currentCounts[id]));
-  const n=new Date();
-  document.getElementById('refreshNote').textContent='마지막 갱신: '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+':'+String(n.getSeconds()).padStart(2,'0')+' (30초마다 자동 갱신)';
-}
-
-// ══════════════════════════════════════════════════
-//  LOAD COUNTS (수정: apiGet 사용)
-// ══════════════════════════════════════════════════
-async function loadCounts(){
-  if(IS_DEMO){currentCounts={ws1:14,ws2:8,ws3:11,ws4:22,ws5:17};updateAllSeats();return;}
-  try {
-    const data = await apiGet('action=counts');
-    if(data && data.counts){currentCounts=data.counts;updateAllSeats();}
-  } catch(e) {
-    console.warn('신청현황 로딩 실패:', e.message);
-  }
-}
-
-// ══════════════════════════════════════════════════
-//  TAB
-// ══════════════════════════════════════════════════
-function switchTab(idx){
-  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
-  document.querySelectorAll('.tab-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
-}
-
-// ══════════════════════════════════════════════════
-//  WORKSHOP SELECT
-// ══════════════════════════════════════════════════
-function onWorkshopChange(){
-  const sel=document.getElementById('workshop');
-  const card=document.getElementById('selCard');
-  clearError('fg-workshop');
-  if(!sel.value){card.classList.remove('visible');return;}
-  const opt=sel.options[sel.selectedIndex];
-  const wsId=opt.dataset.ws;
-  const count=currentCounts[wsId]||0;
-  document.getElementById('selTitle').textContent=sel.value;
-  document.getElementById('selMeta').textContent='📅 '+opt.dataset.date+'  ·  📍 '+opt.dataset.loc;
-  const st=document.getElementById('selStatus');
-  if(count<MAX_SEATS){st.className='ws-sel-status status-ok';st.innerHTML='✅ 정상신청 가능 — 잔여 '+(MAX_SEATS-count)+'석 (현재 '+count+'명 신청)';}
-  else{st.className='ws-sel-status status-wait';st.innerHTML='⏳ 대기순위 '+(count-MAX_SEATS+1)+'번째 예상 — 정원 초과 (현재 '+count+'명 신청)';}
-  card.classList.add('visible');
-}
-
-// ══════════════════════════════════════════════════
-//  PHONE FORMAT
-// ══════════════════════════════════════════════════
-document.getElementById('phone').addEventListener('input',function(e){
-  let v=e.target.value.replace(/[^0-9]/g,'');
-  if(v.length>11)v=v.slice(0,11);
-  if(v.length>7)v=v.slice(0,3)+'-'+v.slice(3,7)+'-'+v.slice(7);
-  else if(v.length>3)v=v.slice(0,3)+'-'+v.slice(3);
-  e.target.value=v;
-  clearError('fg-phone');
-});
-
-// ══════════════════════════════════════════════════
-//  VALIDATION
-// ══════════════════════════════════════════════════
-function setError(id,msg){const el=document.getElementById(id);el.classList.add('has-error');if(msg)el.querySelector('.field-error').textContent=msg;}
-function clearError(id){document.getElementById(id).classList.remove('has-error');}
-['empId','name','dept','email'].forEach(f=>{document.getElementById(f).addEventListener('input',()=>clearError('fg-'+f));});
-document.getElementById('college').addEventListener('change',()=>clearError('fg-college'));
-
-function validateForm(){
-  let ok=true;
-  [{id:'fg-workshop',val:document.getElementById('workshop').value,msg:'워크숍을 선택해 주세요.'},
-   {id:'fg-empId',val:document.getElementById('empId').value.trim(),msg:'교번을 입력해 주세요.'},
-   {id:'fg-name',val:document.getElementById('name').value.trim(),msg:'성명을 입력해 주세요.'},
-   {id:'fg-college',val:document.getElementById('college').value,msg:'단과대학을 선택해 주세요.'},
-   {id:'fg-dept',val:document.getElementById('dept').value.trim(),msg:'학과를 입력해 주세요.'},
-   {id:'fg-phone',val:document.getElementById('phone').value.trim(),msg:'연락처를 입력해 주세요.'},
-   {id:'fg-email',val:document.getElementById('email').value.trim(),msg:'이메일을 입력해 주세요.'}
-  ].forEach(f=>{if(!f.val){setError(f.id,f.msg);ok=false;}else clearError(f.id);});
-  const em=document.getElementById('email').value.trim();
-  if(em&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){setError('fg-email','올바른 이메일 형식으로 입력해 주세요.');ok=false;}
-  const ph=document.getElementById('phone').value.trim();
-  if(ph&&!/^\d{3}-\d{3,4}-\d{4}$/.test(ph)){setError('fg-phone','올바른 연락처 형식(010-0000-0000)으로 입력해 주세요.');ok=false;}
-  return ok;
-}
-
-// ══════════════════════════════════════════════════
-//  SUBMIT (수정: apiPost 사용)
-// ══════════════════════════════════════════════════
-async function handleSubmit(e){
-  e.preventDefault();
-  if(!validateForm())return;
-  const btn=document.getElementById('submitBtn');
-  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>신청 중...';
-  const sel=document.getElementById('workshop');
-  const opt=sel.options[sel.selectedIndex];
-  const wsId=opt.dataset.ws;
-  const payload={workshopName:sel.value,workshopDate:opt.dataset.date,workshopId:wsId,
-    empId:document.getElementById('empId').value.trim(),
-    name:document.getElementById('name').value.trim(),
-    college:document.getElementById('college').value,
-    dept:document.getElementById('dept').value.trim(),
-    phone:document.getElementById('phone').value.trim(),
-    email:document.getElementById('email').value.trim()};
-  try{
-    let resultStatus,resultNumber,resultWait;
-    if(IS_DEMO){
-      await new Promise(r=>setTimeout(r,1200));
-      const dup=demoRecords.find(r=>r.empId===payload.empId&&r.workshopId===wsId);
-      if(dup){showToastError(payload.name,payload.workshopName);return;}
-      currentCounts[wsId]=(currentCounts[wsId]||0)+1;
-      const c=currentCounts[wsId];
-      resultNumber=demoRecords.length+1;
-      if(c<=MAX_SEATS){resultStatus='ok';}else{resultStatus='wait';resultWait=c-MAX_SEATS;}
-      demoRecords.push({number:resultNumber,workshopName:payload.workshopName,workshopDate:payload.workshopDate,workshopId:wsId,empId:payload.empId,name:payload.name,college:payload.college,dept:payload.dept,status:resultStatus==='ok'?'정상신청완료':'대기순위 '+resultWait+'번',workshopOrder:c,timestamp:new Date().toLocaleString('ko-KR')});
-    } else {
-      const data = await apiPost(payload);
-      if(data.duplicate){showToastError(payload.name,payload.workshopName);return;}
-      resultStatus=data.status;resultNumber=data.number;resultWait=data.waitNumber;
-      if(data.counts) currentCounts=data.counts;
-    }
-    updateAllSeats();
-    showToast(payload.name,payload.workshopName,resultStatus,resultNumber,resultWait);
-  } catch(err) {
-    console.error('신청 오류:', err);
-    alert('서버 연결에 실패했습니다.\n\n확인 사항:\n1. Apps Script 웹앱 URL이 정확한지 확인\n2. 배포 시 "모든 사용자" 액세스 권한 확인\n3. 코드 수정 후 "새 버전"으로 재배포 확인\n\n워크숍 신청 탭 하단의 [연결 테스트] 버튼으로 진단할 수 있습니다.\n\n상세 오류: '+err.message);
-  } finally {
-    btn.disabled=false;btn.innerHTML='신청하기';
-  }
-}
-
-// ══════════════════════════════════════════════════
-//  INQUIRY (수정: apiGet 사용)
-// ══════════════════════════════════════════════════
-async function handleInquiry(){
-  const empId=document.getElementById('inquiryEmpId').value.trim();
-  const rd=document.getElementById('inquiryResults');
-  if(!empId){rd.innerHTML='<div class="inquiry-empty">교번을 입력해 주세요.</div>';return;}
-  const btn=document.getElementById('inquiryBtn');btn.disabled=true;btn.textContent='조회 중...';
-  try{
-    let records=[];
-    if(IS_DEMO){await new Promise(r=>setTimeout(r,800));records=demoRecords.filter(r=>r.empId===empId);}
-    else {
-      const data = await apiGet('action=inquiry&empId='+encodeURIComponent(empId));
-      records=data.records||[];
-    }
-    if(records.length===0){rd.innerHTML='<div class="inquiry-empty">교번 <strong>'+empId+'</strong>으로 신청된 내역이 없습니다.</div>';}
-    else{let h='';records.forEach(r=>{const isOk=r.status==='정상신청완료';h+=`<div class="inquiry-card ${isOk?'iq-ok':'iq-wait'}"><div class="inquiry-card-header"><div class="inquiry-card-ws">${r.workshopName}</div><span class="inquiry-status-tag ${isOk?'tag-ok':'tag-wait'}">${r.status}</span></div><div class="inquiry-card-info"><div>📅 ${r.workshopDate}</div><div>👤 ${r.name} (${r.empId})</div><div>🏛️ ${r.college} ${r.dept}</div><div>🕐 신청일시: ${r.timestamp}</div></div></div>`;});rd.innerHTML=h;}
-  }catch(err){rd.innerHTML='<div class="inquiry-empty">조회 중 오류가 발생했습니다.<br>'+err.message+'</div>';}
-  finally{btn.disabled=false;btn.textContent='조회하기';}
-}
-document.getElementById('inquiryEmpId').addEventListener('keypress',function(e){if(e.key==='Enter')handleInquiry();});
-
-// ══════════════════════════════════════════════════
-//  TOAST
-// ══════════════════════════════════════════════════
-function showToast(name,ws,status,number,waitNum){
-  const iw=document.getElementById('toastIconWrap'),ic=document.getElementById('toastIcon'),tt=document.getElementById('toastTitle'),msg=document.getElementById('toastMsg'),sc=document.getElementById('toastStatusCard'),si=document.getElementById('toastStatusIcon'),st=document.getElementById('toastStatusText');
-  msg.innerHTML='<strong>'+name+'</strong> 님<br><strong>'+ws+'</strong>';
-  if(status==='ok'){iw.className='toast-icon-wrap toast-success';ic.textContent='✅';tt.textContent='신청이 완료되었습니다';sc.className='toast-status-card st-ok';si.textContent='✅';st.textContent='정상신청완료'+(number?' (접수번호 '+number+')':'');}
-  else{iw.className='toast-icon-wrap toast-wait';ic.textContent='⏳';tt.textContent='대기 접수되었습니다';sc.className='toast-status-card st-wait';si.textContent='⏳';st.textContent='대기순위 '+waitNum+'번';}
-  document.getElementById('toastOverlay').classList.add('show');
-  document.getElementById('regForm').reset();
-  document.getElementById('selCard').classList.remove('visible');
-}
-function showToastError(name,ws){
-  const iw=document.getElementById('toastIconWrap'),ic=document.getElementById('toastIcon'),tt=document.getElementById('toastTitle'),msg=document.getElementById('toastMsg'),sc=document.getElementById('toastStatusCard'),si=document.getElementById('toastStatusIcon'),st=document.getElementById('toastStatusText');
-  iw.className='toast-icon-wrap toast-err';ic.textContent='⚠️';tt.textContent='중복 신청입니다';
-  msg.innerHTML='<strong>'+name+'</strong> 님은 이미<br><strong>'+ws+'</strong>에<br>신청하셨습니다.';
-  sc.className='toast-status-card st-err';si.textContent='⚠️';st.textContent='중복 신청 불가';
-  document.getElementById('toastOverlay').classList.add('show');
-}
-function closeToast(){document.getElementById('toastOverlay').classList.remove('show');}
-
-// ══════════════════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded',()=>{
-  renderCards();
-  loadCounts();
-  setInterval(loadCounts, REFRESH_INTERVAL);
-  // 데모 모드일 때 연결 테스트 섹션 강조
-  if(IS_DEMO) {
-    const cw = document.getElementById('connTestWrap');
-    if(cw) { cw.style.borderColor='var(--bcg-amber)'; cw.style.background='#FFFBEB'; }
-  }
-});
+    // 초기 렌더링
+    renderTable();
 </script>
+
 </body>
 </html>
